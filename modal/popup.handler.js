@@ -24,7 +24,7 @@ function PopupHandler(options) {
 	    });
 	}
 
-    self.init = function() {
+    self.open = function() {
         $('.' + self.options.parentClass).append(template.html());
         $('#' + self.options.container).fadeIn('slow');
         $('#message-text').html(self.options.text);
