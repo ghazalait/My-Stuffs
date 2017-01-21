@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title>Modal Example</title>
+	</head>
+	<body>
+	</body>
+	<button id="my-modal">Open Modal</button>
+	<script type="text/x-html" id="messageAlertScript">
+	    <div id="message-alert" class="confirm-request-show modal in">
+	        <div class="modal-dialog">
+	            <div class="modal-content">
+	                <div class="modal-body">
+	                    <h3 class="text-center">&nbsp;</h3>
+	                    <p class="text-center" id="message-text"></p>
+	                    <div class="row">
+	                        <div class="col-sm-12">
+	                            <div data-gsmtl-container>
+	                                <div class="form-group">
+	                                    <button class="btn btn-block btn-orange closeButton">Close</button>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</script>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="popup.handler.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#my-modal').on('click', function(){
+				var modal = PopupHandler({
+					'parentClass': 'modal-parent',
+			        'container': (options.container) ? options.container : 'message-alert',
+			        'text': options.text,
+			        'onClose': options.onClose || function(){},
+			        'onOpen': options.onOpen || function(){},
+			        'closeClass': options.closeClass || 'close'
+				});
+				modal.init();
+			});
+		});
+	</script>
+</html>
